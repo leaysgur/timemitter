@@ -1,6 +1,6 @@
 {
   "name": "timemitter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Timer based event Emitter for casual use",
   "main": "./dist/timemitter.js",
   "module": "./src/timemitter.js",
