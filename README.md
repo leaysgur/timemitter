@@ -24,7 +24,7 @@ timer
   .at(5, time => console.log(`${time}: at 5sec`))
   .every(2, time => console.log(`${time}: every 2sec`))
   .at(60, time => console.log(`${time}: at 1min`))
-  .start()
+  .start();
 ```
 
 This code logs,
@@ -110,3 +110,14 @@ This case,
 ### destroy()
 
 Stop interval and remove all handlers.
+
+```js
+const timer = new Timemitter();
+timer
+  .at(3, () => console.log('Fired after 3sec'))
+  .start();
+
+timer.destroy();
+```
+
+In this case, 3sec handler do not be called.

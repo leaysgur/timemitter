@@ -1,5 +1,5 @@
 /**
- * timemitter v1.0.0 - (c) leader22 2017 - MIT
+ * timemitter v1.0.2 - (c) leader22 2017 - MIT
  */
 
 (function (global, factory) {
