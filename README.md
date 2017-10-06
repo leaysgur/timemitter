@@ -1,8 +1,8 @@
 # timemitter
 
-Timer based event Emitter for casual use.
+Time based event Emitter for casual use.
 
-> Internal clock is a `setInterval`, so I don't reccomend this for serious use.
+> Internal clock is a `setInterval()`, so I don't reccomend this for serious use.
 
 ## Install
 
@@ -18,22 +18,30 @@ yarn add timemitter
 import Timemitter from 'timemitter';
 
 const timer = new Timemitter();
-
 timer
+  .at(0, time => console.log(`${time}: start!`))
   .at(3, time => console.log(`${time}: at 3sec`))
   .at(5, time => console.log(`${time}: at 5sec`))
   .every(2, time => console.log(`${time}: every 2sec`))
+  .at(60, time => console.log(`${time}: at 1min`))
   .start()
 ```
 
-```
+This code logs,
+
+```js
+0: start!
 2: every 2sec
 3: at 3sec
 4: every 2sec
 5: at 5sec
 6: every 2sec
 8: every 2sec
+
 // ...
+
+60: at 1min
+60: every 2sec
 ```
 
 ## API
@@ -63,4 +71,4 @@ Reset timer count to 0.
 
 ### destroy()
 
-Stop timer and remove all handlers.
+Stop interval and remove all handlers.
