@@ -18,7 +18,7 @@ class TimeEmitter {
     this._timer = 0;
   }
 
-  create(interval = 1000) {
+  start(interval = 1000) {
     // run only once
     if (this._timer !== 0) {
       return this;
