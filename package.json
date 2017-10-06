@@ -1,0 +1,25 @@
+{
+  "name": "timemitter",
+  "version": "1.0.0",
+  "description": "Timer based event Emitter for casual use",
+  "main": "./dist/timemitter.js",
+  "module": "./src/timemitter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leader22/timemitter.git"
+  },
+  "keywords": [],
+  "author": "leader22",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leader22/timemitter/issues"
+  },
+  "homepage": "https://github.com/leader22/timemitter#readme",
+  "devDependencies": {
+    "rollup": "^0.50.0"
+  }
+}
