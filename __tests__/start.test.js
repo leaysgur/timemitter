@@ -16,6 +16,21 @@ test('#start - default', () => {
   expect(mockCallback.mock.calls[0][0]).toBe(4);
 });
 
+test('#start - ignore duplicated start', () => {
+  const timer = new Timemitter();
+  const mockCallback = jest.fn();
+
+  timer
+    .at(4, time => mockCallback(time))
+    .start()
+    .start();
+
+  jest.runTimersToTime(5000);
+
+  expect(mockCallback.mock.calls.length).toBe(1);
+  expect(mockCallback.mock.calls[0][0]).toBe(4);
+});
+
 test('#start - specify: no time', () => {
   const timer = new Timemitter();
   const mockCallback = jest.fn();

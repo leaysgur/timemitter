@@ -39,3 +39,19 @@ test('#every - multi', () => {
   expect(mockCallback2.mock.calls[1][0]).toBe(6);
   expect(mockCallback2.mock.calls[2][0]).toBe(9);
 });
+
+test('#every - fix negative value to one', () => {
+  const timer = new Timemitter();
+  const mockCallback = jest.fn();
+
+  timer
+    .every(-3, time => mockCallback(time))
+    .start();
+
+  jest.runTimersToTime(10000);
+
+  expect(mockCallback.mock.calls.length).toBe(10);
+  expect(mockCallback.mock.calls[0][0]).toBe(1);
+  expect(mockCallback.mock.calls[1][0]).toBe(2);
+  expect(mockCallback.mock.calls[2][0]).toBe(3);
+});
