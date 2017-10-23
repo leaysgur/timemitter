@@ -1,5 +1,5 @@
 /**
- * timemitter v1.0.2 - (c) leader22 2017 - MIT
+ * timemitter v1.0.3 - (c) leader22 2017 - MIT
  */
 
 (function (global, factory) {
@@ -11,6 +11,7 @@
 class TimeEmitter {
   constructor () {
     this.time = 0;
+    this.isPaused = false;
 
     this._atHandlers = new Map();
     this._everyHandlers = new Map();
@@ -28,12 +29,23 @@ class TimeEmitter {
     this._fireByTime(this.time);
 
     this._timer = setInterval(() => {
-      this.time++;
+      if (this.isPaused) {
+        return;
+      }
 
+      this.time++;
       this._fireByTime(this.time);
     }, interval);
 
     return this;
+  }
+
+  pause() {
+    this.isPaused = true;
+  }
+
+  resume() {
+    this.isPaused = false;
   }
 
   destroy() {
