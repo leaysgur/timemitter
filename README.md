@@ -89,6 +89,26 @@ new Timemitter()
 
 In this case, `interval` is `500`. So handler called in 1sec.
 
+### pause() / resume()
+
+Pause and resume timer.
+
+```js
+const timer = new Timemitter();
+
+timer
+  .at(0, () => console.log('fire'))
+  .at(2, () => timer.pause())
+  .at(3, () => console.log('will not fire');
+```
+
+If you resume later, timer will restart from paused time.
+
+```js
+timer.resume();
+```
+In this case, timer restarts from 2, next fire time is 3.
+
 ### reset()
 
 Reset timer count to 0.
